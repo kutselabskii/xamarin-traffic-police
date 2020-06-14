@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Woodpecker.ProfilePage"
+             Title="Profile editing">
+
+	<ContentPage.Content>
+        <StackLayout>
+            <Label Text="Fill every field"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand" />
+			<Entry Placeholder="Name (Organization)" Text="{Binding Name}" HorizontalTextAlignment="Center"/>
+			<Entry Placeholder="E-mail" Text="{Binding Email}" HorizontalTextAlignment="Center"/>
+			<Entry Placeholder="Phone number" Text="{Binding Phone}" HorizontalTextAlignment="Center"/>
+			<Entry Placeholder="Destination region" Text="{Binding DestRegion}" HorizontalTextAlignment="Center"/>
+			<Entry Placeholder="Administrative unit" Text="{Binding Unit}" HorizontalTextAlignment="Center"/>
+			<Entry Placeholder="Region of incident" Text="{Binding Region}" HorizontalTextAlignment="Center"/>
+			<StackLayout Orientation="Horizontal">
+				<Button Text="Save"
+				        HorizontalOptions="CenterAndExpand"
+				        VerticalOptions="CenterAndExpand"
+				        Clicked="SaveButtonClicked"/>
+				<Button x:Name="DeleteButton"
+						Text="Delete"
+				        HorizontalOptions="CenterAndExpand"
+				        VerticalOptions="CenterAndExpand"
+				        Clicked="DeleteButtonClicked"/>
+				<Button Text="Back"
+				        HorizontalOptions="CenterAndExpand"
+				        VerticalOptions="CenterAndExpand"
+				        Clicked="BackButtonClicked"/>
+			</StackLayout>
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>

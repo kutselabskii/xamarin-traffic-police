@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Woodpecker.MainPage"
+             Title="Main page">
+
+    <StackLayout>
+		<ListView x:Name="ProfilesList" ItemsSource="{Binding}" ItemSelected="OnItemSelected">
+			<ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Name}"/>
+                                <Label Text="{Binding Phone}"/>
+                                <Label Text="{Binding DestRegion}"/>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+
+	    <Button Text="Create new profile"
+	            HorizontalOptions="CenterAndExpand"
+	            VerticalOptions="CenterAndExpand"
+	            Clicked="CreateNewProfileClicked"
+	            WidthRequest="Infinity"/>
+	    <Button Text="Edit selected profile"
+	            HorizontalOptions="CenterAndExpand"
+	            VerticalOptions="CenterAndExpand"
+	            Clicked="EditProfileClicked"
+	            WidthRequest="Infinity"/>
+	    <Button x:Name="FillFormButton"
+	            Text="Fill the form"
+	            HorizontalOptions="CenterAndExpand"
+	            VerticalOptions="CenterAndExpand"
+	            Clicked="FillFormClicked"
+	            WidthRequest="Infinity"/>
+    </StackLayout>
+
+</ContentPage>

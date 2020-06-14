@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Woodpecker.EditPage"
+             Title="Editing page">
+    <ContentPage.Content>
+		<StackLayout Orientation="Vertical" VerticalOptions="Fill">
+			<ScrollView>
+				<StackLayout HeightRequest="300">
+					<Label Text="Enter your precious text"
+					       VerticalOptions="Start"
+					       HorizontalOptions="Center" />
+
+					<Editor x:Name="Editor"
+					        Placeholder="Enter text hehe"
+					        AutoSize="TextChanges"
+					        VerticalOptions="StartAndExpand"/>
+				</StackLayout>
+			</ScrollView>
+
+			<ListView x:Name="PhotosList" ItemsSource="{Binding}" ItemTapped="OnPhotoTapped" VerticalOptions="Start" HeightRequest="200">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<ViewCell.View>
+								<Image Source="{Binding Source}" HeightRequest="48" WidthRequest="48"/>
+							</ViewCell.View>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+
+			<StackLayout Orientation="Horizontal">
+				<Button Text="Take a photo"
+				        HorizontalOptions="CenterAndExpand"
+				        VerticalOptions="CenterAndExpand"
+				        Clicked="TakePhotoClicked"/>
+
+				<Button Text="Pick a photo"
+				        HorizontalOptions="CenterAndExpand"
+				        VerticalOptions="CenterAndExpand"
+				        Clicked="PickPhotoClicked"/>
+
+				<Button Text="All done!"
+				        HorizontalOptions="CenterAndExpand"
+				        VerticalOptions="CenterAndExpand"
+				        Clicked="AllDoneClicked"/>
+			</StackLayout>
+
+			<Label Text="Reuse previously used texts:"
+			       VerticalOptions="Start"
+			       HorizontalOptions="Center" />
+			<ListView x:Name="DeclarationsList" ItemsSource="{Binding}" ItemTapped="OnItemTapped" VerticalOptions="Fill" HeightRequest="300">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<ViewCell.View>
+								<StackLayout Orientation="Horizontal">
+									<Label Text="{Binding Text}"/>
+								</StackLayout>
+							</ViewCell.View>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+    </ContentPage.Content>
+</ContentPage>
